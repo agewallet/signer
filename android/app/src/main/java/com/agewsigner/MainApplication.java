@@ -1,4 +1,4 @@
-package com.signer;
+package com.agewsigner;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
