@@ -1,9 +1,16 @@
-/**
- * @format
- */
+import 'react-native-gesture-handler';
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+import {Navigation} from 'react-native-navigation';
 
-AppRegistry.registerComponent(appName, () => App);
+// Navigation
+import {renderScene} from './src/navigation/index';
+import registerScreens from './src/navigation/registerScreens';
+
+// Config
+import * as scenes from '@config/scenes';
+
+Navigation.events().registerAppLaunchedListener(async () => {
+  await registerScreens();
+
+  renderScene(scenes.WELCOME);
+});
