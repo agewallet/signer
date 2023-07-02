@@ -8,6 +8,7 @@
       "@navigation/*": ["src/navigation/*"],
       "@config/*": ["src/config/*"],
       "@scenes/*": ["src/scenes/*"],
+      "@utils/*": ["src/utils/*"]
     }
   }
 }

@@ -11,7 +11,15 @@ import * as AppScenes from '@scenes/index';
 const registerScreens = async (): Promise<void> => {
   const Screens = new Map();
 
+  // Tabs
+  Screens.set(SceneNames.SCAN_TAB, AppScenes.Scan);
+  Screens.set(SceneNames.MANAGE_ASSETS_TAB, AppScenes.ManageAssets);
+  Screens.set(SceneNames.SIGNATURES_HISTORY_TAB, AppScenes.SignaturesHistory);
+  Screens.set(SceneNames.SETTINGS_TAB, AppScenes.Settings);
+
+  // Scenes
   Screens.set(SceneNames.WELCOME, AppScenes.Welcome);
+  Screens.set(SceneNames.ADD_NEW_WALLET, AppScenes.AddNewWallet);
 
   Screens.forEach((C, key) => {
     Navigation.registerComponent(
