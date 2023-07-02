@@ -7,7 +7,7 @@ import Header from '@components/Header';
 import Button from '@components/Button';
 
 // Utils
-import {push} from '../../utils/navigation';
+import {push} from '@utils/navigation';
 
 // Config
 import * as scenes from '@config/scenes';

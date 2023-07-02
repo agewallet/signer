@@ -8,6 +8,8 @@ import * as SceneNames from '@config/scenes';
 // Scenes
 import * as AppScenes from '@scenes/index';
 
+import ProviderWrapper from './ProvderWrapper';
+
 const registerScreens = async (): Promise<void> => {
   const Screens = new Map();
 
@@ -24,7 +26,7 @@ const registerScreens = async (): Promise<void> => {
   Screens.forEach((C, key) => {
     Navigation.registerComponent(
       key,
-      () => gestureHandlerRootHOC(withNavigationProvider(C)),
+      () => gestureHandlerRootHOC(withNavigationProvider(ProviderWrapper(C))),
       () => C,
     );
   });
