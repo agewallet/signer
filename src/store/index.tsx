@@ -1,21 +1,25 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Reducers
 import appReducer from "./app";
-import messageReducer from "./message";
-import usersReducer from "./users";
 
-const store = configureStore({
-  reducer: {
-    app: appReducer,
-    message: messageReducer,
-    users: usersReducer,
-  },
-  // https://dev.to/shreyvijayvargiya/react-native-redux-tool-kit-asyncstorage-210e
-  middleware: [],
+const persistConfig = {
+  storage: AsyncStorage,
+  key: "root",
+};
+
+const rootReducer = combineReducers({
+  app: appReducer,
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+});
+
+export const persistor = persistStore(store);
 
 export default store;

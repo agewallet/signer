@@ -5,8 +5,5 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
   },
-  scrollContainer: {
-    paddingTop: 24,
-    paddingHorizontal: 16,
-  },
+  scrollContainer: {},
 });

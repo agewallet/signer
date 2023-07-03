@@ -1,9 +1,10 @@
 import * as React from "react";
-import { View, ScrollView, Text } from "react-native";
+import { View, ScrollView } from "react-native";
 
 // Components
 import Wrapper from "@components/Wrapper";
 import Header from "@components/Header";
+import ListItem from "@components/ListItem";
 
 // Styles
 import styles from "./styles";
@@ -15,6 +16,10 @@ interface Props {
 const Security: React.FC<Props> = (props) => {
   const { componentId } = props;
 
+  const onViewPasscode = (): void => {
+    //
+  };
+
   return (
     <Wrapper componentId={componentId}>
       <Header title="Security" />
@@ -23,7 +28,7 @@ const Security: React.FC<Props> = (props) => {
           contentContainerStyle={styles.scrollContainer}
           showsVerticalScrollIndicator={false}
         >
-          <Text>Security</Text>
+          <ListItem title="Passcode & Face ID" onPress={onViewPasscode} />
         </ScrollView>
       </View>
     </Wrapper>

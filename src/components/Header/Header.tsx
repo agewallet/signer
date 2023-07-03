@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { useSelector } from "react-redux";
 
 // Store
-import { RootState } from "@store/index";
+import { RootState } from "@store/types";
 
 // Styles
 import styles from "./styles";

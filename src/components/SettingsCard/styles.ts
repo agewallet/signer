@@ -18,13 +18,17 @@ export default StyleSheet.create({
   arrowIcon: {
     width: 24,
     height: 24,
-    backgroundColor: "blue",
   },
   iconRow: {
     width: 28,
     height: 28,
     borderRadius: 8,
-    backgroundColor: "blue",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  icon: {
+    width: 16,
+    height: 16,
   },
   title: {
     marginLeft: 12,
