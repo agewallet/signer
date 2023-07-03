@@ -1,5 +1,5 @@
 // Config
-import * as SceneNames from '@config/scenes';
+import * as screens from "@config/screens";
 
 export type TBottomTab = {
   name: string;
@@ -8,16 +8,16 @@ export type TBottomTab = {
 
 export const bottomTabs: TBottomTab[] = [
   {
-    name: SceneNames.SCAN_TAB,
+    name: screens.SCAN_TAB,
   },
   {
-    name: SceneNames.MANAGE_ASSETS_TAB,
+    name: screens.MANAGE_ASSETS_TAB,
   },
   {
-    name: SceneNames.SIGNATURES_HISTORY_TAB,
+    name: screens.HISTORY_TAB,
   },
   {
-    name: SceneNames.SETTINGS_TAB,
+    name: screens.SETTINGS_TAB,
   },
 ];
 

@@ -1,22 +1,22 @@
-import * as React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import * as React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 
 // Utils
-import {setTabIndex} from '@utils/navigation';
+import { setTabIndex } from "@utils/navigation";
 
 // Config
-import {bottomTabs} from '@config/navigation';
+import { bottomTabs } from "@config/navigation";
 
 // Styles
-import styles from './styles';
+import styles from "./styles";
 
 interface Props {
   componentId: string;
   activeTab: string;
 }
 
-const BottomTabs: React.FC<Props> = props => {
-  const {componentId, activeTab} = props;
+const BottomTabs: React.FC<Props> = (props) => {
+  const { componentId, activeTab } = props;
 
   const openTab = (index: number) => (): void => {
     setTabIndex(componentId, index);
@@ -26,7 +26,7 @@ const BottomTabs: React.FC<Props> = props => {
     <View style={styles.container}>
       <View style={styles.row}>
         {bottomTabs.map((bottomTab, index) => {
-          const {name} = bottomTab;
+          const { name } = bottomTab;
           const isActive = activeTab === name;
 
           return (
@@ -35,12 +35,14 @@ const BottomTabs: React.FC<Props> = props => {
               disabled={isActive}
               activeOpacity={1}
               onPress={openTab(index)}
-              style={styles.button}>
+              style={styles.button}
+            >
               <View style={[styles.icon, isActive && styles.activeIcon]} />
               <Text
                 style={[styles.title, isActive && styles.activeTitle]}
                 numberOfLines={1}
-                ellipsizeMode="middle">
+                ellipsizeMode="middle"
+              >
                 {name}
               </Text>
             </TouchableOpacity>

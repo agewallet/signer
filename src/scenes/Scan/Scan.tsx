@@ -1,32 +1,20 @@
-import * as React from 'react';
-import {View, Text, ScrollView} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import * as React from "react";
+import { View, ScrollView } from "react-native";
 
 // Components
-import Wrapper from '@components/Wrapper';
-import Header from '@components/Header';
-import Button from '@components/Button';
-
-// Store
-import {RootState} from '../../store/index';
-import {setMessage} from '../../store/message';
+import Wrapper from "@components/Wrapper";
+import Header from "@components/Header";
+import ScanCard from "@components/ScanCard";
 
 // Styles
-import styles from './styles';
+import styles from "./styles";
 
 interface Props {
   componentId: string;
 }
 
-const Scan: React.FC<Props> = props => {
-  const {componentId} = props;
-
-  const dispatch = useDispatch();
-  const {message} = useSelector((state: RootState) => state.message);
-
-  const handlePress = () => {
-    dispatch(setMessage('Message from Component'));
-  };
+const Scan: React.FC<Props> = (props) => {
+  const { componentId } = props;
 
   return (
     <Wrapper componentId={componentId} withTabs activeTab="scan">
@@ -34,10 +22,9 @@ const Scan: React.FC<Props> = props => {
       <View style={styles.container}>
         <ScrollView
           contentContainerStyle={styles.scrollContainer}
-          showsVerticalScrollIndicator={false}>
-          <Text>Scan</Text>
-          <Text style={{}}>{message}</Text>
-          <Button title={'Set Message'} onPress={handlePress} />
+          showsVerticalScrollIndicator={false}
+        >
+          <ScanCard />
         </ScrollView>
       </View>
     </Wrapper>

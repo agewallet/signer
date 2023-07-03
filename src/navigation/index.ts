@@ -1,7 +1,7 @@
-import {Navigation} from 'react-native-navigation';
+import { Navigation } from "react-native-navigation";
 
 // Config
-import {bottomTabs} from '@config/navigation';
+import { bottomTabs } from "@config/navigation";
 
 export const renderApp = () => {
   Navigation.setDefaultOptions({
@@ -9,8 +9,8 @@ export const renderApp = () => {
       visible: false,
     },
     layout: {
-      backgroundColor: 'transparent',
-      orientation: ['portrait'],
+      backgroundColor: "transparent",
+      orientation: ["portrait"],
     },
     animations: {
       setRoot: {
@@ -22,7 +22,7 @@ export const renderApp = () => {
   Navigation.setRoot({
     root: {
       bottomTabs: {
-        children: bottomTabs.map(bottomTab => ({
+        children: bottomTabs.map((bottomTab) => ({
           stack: {
             children: [
               {
@@ -52,8 +52,8 @@ export const renderScene = (sceneName: string) => {
       visible: false,
     },
     layout: {
-      backgroundColor: 'transparent',
-      orientation: ['portrait'],
+      backgroundColor: "transparent",
+      orientation: ["portrait"],
     },
     bottomTabs: {
       visible: false,

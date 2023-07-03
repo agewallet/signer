@@ -1,8 +1,8 @@
-import React from 'react';
-import {Provider} from 'react-redux';
+import * as React from "react";
+import { Provider } from "react-redux";
 
 // Store
-import store from '../store/index';
+import store from "@store/index";
 
 const ProviderWrapper = (Component: any) => {
   return (props: any) => (

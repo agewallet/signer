@@ -1,12 +1,12 @@
-import * as React from 'react';
-import {View} from 'react-native';
-import {useNetInfo} from '@react-native-community/netinfo';
+import * as React from "react";
+import { View } from "react-native";
+import { useNetInfo } from "@react-native-community/netinfo";
 
 // Components
-import BottomTabs from '@components/BottomTabs';
+import BottomTabs from "@components/BottomTabs";
 
 // Styles
-import styles from './styles';
+import styles from "./styles";
 
 interface Props {
   children: React.ReactNode;
@@ -15,12 +15,12 @@ interface Props {
   activeTab?: string;
 }
 
-const Wrapper: React.FC<Props> = props => {
-  const {children, componentId, withTabs, activeTab} = props;
+const Wrapper: React.FC<Props> = (props) => {
+  const { children, componentId, withTabs, activeTab } = props;
 
-  const {isConnected, type} = useNetInfo();
+  const { isConnected, type } = useNetInfo();
 
-  if (isConnected || type !== 'none') {
+  if (isConnected || type !== "none") {
     // Block app use
   }
 

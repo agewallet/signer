@@ -1,9 +1,9 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
   },
   scrollContainer: {
     paddingTop: 8,
@@ -12,6 +12,6 @@ export default StyleSheet.create({
   button: {
     padding: 20,
     margin: 20,
-    backgroundColor: 'blue',
+    backgroundColor: "blue",
   },
 });

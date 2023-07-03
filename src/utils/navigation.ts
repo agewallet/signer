@@ -1,7 +1,11 @@
-import {Navigation, Options, OptionsBottomTabs} from 'react-native-navigation';
+import {
+  Navigation,
+  Options,
+  OptionsBottomTabs,
+} from "react-native-navigation";
 
 // Config
-import {IS_ANDROID} from '@config/platform';
+import { IS_ANDROID } from "@config/platform";
 
 export const pop = (componentId: string) => {
   Navigation.pop(componentId);
@@ -15,7 +19,7 @@ export const push = (
   componentId: string,
   name: string,
   passProps = {},
-  options: Options = {},
+  options: Options = {}
 ) => {
   Navigation.push(componentId, {
     component: {
@@ -40,7 +44,7 @@ export const push = (
 export const showModal = (
   name: string,
   passProps = {},
-  options: Options = {},
+  options: Options = {}
 ) => {
   Navigation.showModal({
     component: {
@@ -70,7 +74,7 @@ export const popToRoot = (componentId: string, options: Options = {}) => {
 
 export const setTabIndex = (
   componentId: string,
-  currentTabIndex: number,
+  currentTabIndex: number
 ): void => {
   const bottomTabs: OptionsBottomTabs = {
     currentTabIndex,

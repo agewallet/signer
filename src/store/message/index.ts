@@ -1,9 +1,9 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const messageSlice = createSlice({
-  name: 'message',
+const { actions, reducer } = createSlice({
+  name: "message",
   initialState: {
-    message: 'Initial message',
+    message: "Initial message",
   },
   reducers: {
     setMessage(state, action: PayloadAction<string>) {
@@ -12,5 +12,6 @@ const messageSlice = createSlice({
   },
 });
 
-export const {setMessage} = messageSlice.actions;
-export default messageSlice.reducer;
+export const { setMessage } = actions;
+
+export default reducer;

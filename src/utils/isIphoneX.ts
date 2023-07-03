@@ -1,15 +1,15 @@
-import {Dimensions, Platform} from 'react-native';
+import { Dimensions, Platform } from "react-native";
 
 const values: number[] = [780, 812, 844, 896, 926, 852, 932];
 
 const isIphoneX = () => {
-  const {width, height} = Dimensions.get('window');
+  const { width, height } = Dimensions.get("window");
 
   const findByWidth = values.indexOf(width) !== -1;
   const findByHeight = values.indexOf(height) !== -1;
 
   return (
-    Platform.OS === 'ios' &&
+    Platform.OS === "ios" &&
     !Platform.isPad &&
     !Platform.isTV &&
     (findByWidth || findByHeight)
@@ -17,10 +17,10 @@ const isIphoneX = () => {
 };
 
 export const hasIsland = () => {
-  const dimen = Dimensions.get('window');
+  const dimen = Dimensions.get("window");
 
   return (
-    Platform.OS === 'ios' &&
+    Platform.OS === "ios" &&
     !Platform.isPad &&
     !Platform.isTV &&
     (dimen.height === 852 ||

@@ -1,63 +1,48 @@
-import * as React from 'react';
-import {View, Text, ScrollView, ActivityIndicator, Button} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import * as React from "react";
+import { View, ScrollView } from "react-native";
 
 // Components
-import Wrapper from '@components/Wrapper';
-import Header from '@components/Header';
+import Wrapper from "@components/Wrapper";
+import Header from "@components/Header";
+import SettingsCard from "@components/SettingsCard";
 
-// Store
-import {RootState, AppDispatch} from '../../store/index';
-import {fetchUsers, selectAllUsers} from '../../store/users';
+// Utils
+import { push } from "@utils/navigation";
+
+// Config
+import * as screens from "@config/screens";
 
 // Styles
-import styles from './styles';
+import styles from "./styles";
 
 interface Props {
   componentId: string;
 }
 
-const Settings: React.FC<Props> = props => {
-  const {componentId} = props;
+const Settings: React.FC<Props> = (props) => {
+  const { componentId } = props;
 
-  const dispatch = useDispatch<AppDispatch>();
-
-  const {loading} = useSelector((state: RootState) => state.users);
-  const users = useSelector(selectAllUsers);
-
-  React.useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
+  const openScene = (name: string) => (): void => {
+    push(componentId, name);
+  };
 
   return (
     <Wrapper componentId={componentId} withTabs activeTab="settings">
       <Header title="Settings" />
       <View style={styles.container}>
-        {loading ? (
-          <ActivityIndicator size="large" />
-        ) : (
-          <ScrollView
-            contentContainerStyle={styles.scrollContainer}
-            showsVerticalScrollIndicator={false}>
-            <Button title={'Reload'} onPress={() => dispatch(fetchUsers())} />
-            {users?.map(user => {
-              return (
-                <View style={styles.container} key={user.id}>
-                  <View>
-                    <View>
-                      <Text>
-                        {user.first_name} {user.last_name}
-                      </Text>
-                    </View>
-                    <View>
-                      <Text>{user.email}</Text>
-                    </View>
-                  </View>
-                </View>
-              );
-            })}
-          </ScrollView>
-        )}
+        <ScrollView
+          contentContainerStyle={styles.scrollContainer}
+          showsVerticalScrollIndicator={false}
+        >
+          <SettingsCard
+            title="Security"
+            onPress={openScene(screens.SECURITY)}
+          />
+          <SettingsCard
+            title="Language"
+            onPress={openScene(screens.LANGUAGE)}
+          />
+        </ScrollView>
       </View>
     </Wrapper>
   );

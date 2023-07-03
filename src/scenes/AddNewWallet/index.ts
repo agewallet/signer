@@ -1,3 +1,3 @@
-import AddNewWallet from './AddNewWallet';
+import AddNewWallet from "./AddNewWallet";
 
 export default AddNewWallet;
