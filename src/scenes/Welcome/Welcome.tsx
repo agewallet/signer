@@ -22,7 +22,7 @@ interface Props {
 const Welcome: React.FC<Props> = (props) => {
   const { componentId } = props;
 
-  const onNext = (): void => {
+  const onStart = (): void => {
     push(componentId, screens.ADD_NEW_WALLET);
   };
 
@@ -36,12 +36,13 @@ const Welcome: React.FC<Props> = (props) => {
         >
           <Text style={styles.title}>Welcome to AGE Signer</Text>
           <Text style={styles.description}>
-            lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum
-            dolor sit amet lorem ipsum dolor sit amet
+            A secure way to store private keys. No collection of your personal
+            data. No internet connection. Made by people who love
+            cryptocurrencies for people who love cryptocurrencies
           </Text>
         </ScrollView>
         <View style={styles.actions}>
-          <Button title="Next" onPress={onNext} />
+          <Button title="Start" onPress={onStart} />
         </View>
       </View>
     </Wrapper>

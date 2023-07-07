@@ -5,16 +5,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 // Reducers
 import appReducer from "./app";
 
-const persistConfig = {
-  storage: AsyncStorage,
-  key: "root",
-};
-
 const rootReducer = combineReducers({
   app: appReducer,
 });
 
-export const persistedReducer = persistReducer(persistConfig, rootReducer);
+export const persistedReducer = persistReducer(
+  {
+    storage: AsyncStorage,
+    key: "root",
+  },
+  rootReducer
+);
 
 const store = configureStore({
   reducer: persistedReducer,

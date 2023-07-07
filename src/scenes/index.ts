@@ -11,3 +11,4 @@ export { default as Tx } from "./Tx";
 export { default as Asset } from "./Asset";
 export { default as Security } from "./Security";
 export { default as Language } from "./Language";
+export { default as CreateMnemonic } from "./CreateMnemonic";

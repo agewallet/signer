@@ -11,7 +11,8 @@ import * as AppScenes from "@scenes/index";
 // Modals
 import * as AppModals from "@modals/index";
 
-import ProviderWrapper from "./provderWrapper";
+// Navigation
+import ProviderWrapper from "@navigation/provderWrapper";
 
 const registerScreens = async (): Promise<void> => {
   const Screens = new Map();
@@ -29,6 +30,7 @@ const registerScreens = async (): Promise<void> => {
   Screens.set(screens.ASSET, AppScenes.Asset);
   Screens.set(screens.SECURITY, AppScenes.Security);
   Screens.set(screens.LANGUAGE, AppScenes.Language);
+  Screens.set(screens.CREATE_MNEMONIC, AppScenes.CreateMnemonic);
 
   // Modals
   Screens.set(screens.RECEIVE_MODAL, AppModals.Receive);

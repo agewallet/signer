@@ -11,6 +11,7 @@ export const SECURITY = "security";
 export const LANGUAGE = "language";
 export const TX = "tx";
 export const ASSET = "asset";
+export const CREATE_MNEMONIC = "createMnemonic";
 
 // Modals
 export const RECEIVE_MODAL = "receiveModal";

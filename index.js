@@ -1,9 +1,11 @@
+import "./shim";
+import "react-native-get-random-values";
 import "react-native-gesture-handler";
 
 import { Navigation } from "react-native-navigation";
 
 // Navigation
-import { renderScene } from "@navigation/index";
+import { renderApp, renderScene } from "@navigation/index";
 import registerScreens from "@navigation/registerScreens";
 
 // Store
@@ -18,7 +20,15 @@ Navigation.events().registerAppLaunchedListener(async () => {
 
   const { statusBarHeight } = await Navigation.constants();
 
+  const {
+    app: { isOnboardingPassed },
+  } = store.getState();
+
   store.dispatch(setStatusBarHeight(statusBarHeight));
 
-  renderScene(screens.WELCOME);
+  if (isOnboardingPassed) {
+    renderApp();
+  } else {
+    renderScene(screens.WELCOME);
+  }
 });

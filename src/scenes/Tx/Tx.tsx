@@ -23,7 +23,35 @@ const Tx: React.FC<Props> = (props) => {
           contentContainerStyle={styles.scrollContainer}
           showsVerticalScrollIndicator={false}
         >
-          <Text>Transaction</Text>
+          <View style={styles.group}>
+            <View style={styles.groupItem}>
+              <View style={styles.groupItemIcon} />
+              <View style={styles.groupItemRow}>
+                <Text style={styles.groupItemTitle}>Sent</Text>
+                <View style={styles.groupItemBottom}>
+                  <Text style={styles.groupItemValue}>0.0158 ETH</Text>
+                  <View style={styles.badge}>
+                    <Text style={styles.badgeText}>$ 986.22</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.dividerLine} />
+
+            <View style={styles.groupItem}>
+              <View style={styles.groupItemIcon} />
+              <View style={styles.groupItemRow}>
+                <Text style={styles.groupItemTitle}>Sent</Text>
+                <View style={styles.groupItemBottom}>
+                  <Text style={styles.groupItemValue}>0.0158 ETH</Text>
+                  <View style={styles.badge}>
+                    <Text style={styles.badgeText}>$ 986.22</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
         </ScrollView>
       </View>
     </Wrapper>

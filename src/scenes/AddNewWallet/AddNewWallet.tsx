@@ -8,6 +8,12 @@ import Header from "@components/Header";
 // Navigation
 import { renderApp } from "@navigation/index";
 
+// Utils
+import { push } from "@utils/navigation";
+
+// Config
+import * as screens from "@config/screens";
+
 // Styles
 import styles from "./styles";
 
@@ -19,7 +25,11 @@ const AddNewWallet: React.FC<Props> = (props) => {
   const { componentId } = props;
 
   const onPressAction = (type: "import" | "create") => (): void => {
-    renderApp();
+    if (type === "create") {
+      push(componentId, screens.CREATE_MNEMONIC);
+    } else {
+      renderApp();
+    }
   };
 
   return (
@@ -34,13 +44,27 @@ const AddNewWallet: React.FC<Props> = (props) => {
             style={styles.button}
             onPress={onPressAction("import")}
           >
-            <Text>Import exists mnemonic</Text>
+            <View style={styles.buttonIconRow} />
+            <View style={styles.buttonRow}>
+              <Text style={styles.buttonTitle}>Import exists mnemonic</Text>
+              <Text style={styles.buttonText}>
+                some text some text some text some text
+              </Text>
+            </View>
+            <View style={styles.buttonArrowIcon} />
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.button}
+            style={[styles.button, styles.buttonOffset]}
             onPress={onPressAction("create")}
           >
-            <Text>Create new mnemonic</Text>
+            <View style={styles.buttonIconRow} />
+            <View style={styles.buttonRow}>
+              <Text style={styles.buttonTitle}>Create new mnemonic</Text>
+              <Text style={styles.buttonText}>
+                some text some text some text some text
+              </Text>
+            </View>
+            <View style={styles.buttonArrowIcon} />
           </TouchableOpacity>
         </ScrollView>
       </View>

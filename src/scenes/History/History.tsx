@@ -28,7 +28,7 @@ const History: React.FC<Props> = (props) => {
 
   return (
     <Wrapper componentId={componentId} withTabs activeTab="history">
-      <Header title="Signatures history" />
+      <Header title="History" />
       <View style={styles.container}>
         <ScrollView
           contentContainerStyle={styles.scrollContainer}
