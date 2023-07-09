@@ -1,6 +1,9 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 
+// Components
+import Button from "@components/Button";
+
 // Styles
 import styles from "./styles";
 
@@ -16,8 +19,10 @@ const ActionCard: React.FC<Props> = (props) => {
   const { text, button } = props;
 
   return (
-    <View>
-      <Text>ActionCard</Text>
+    <View style={styles.container}>
+      <View style={styles.iconRow} />
+      <Text style={styles.text}>{text}</Text>
+      <Button {...button} title={button.title} style={styles.button} />
     </View>
   );
 };

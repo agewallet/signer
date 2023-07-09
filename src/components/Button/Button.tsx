@@ -8,13 +8,17 @@ interface Props {
   title: string;
   onPress: () => void;
   style?: ViewStyle;
+  mt?: number;
 }
 
 const Button: React.FC<Props> = (props) => {
-  const { title, onPress, style } = props;
+  const { title, onPress, style, mt = 0 } = props;
 
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.container, style]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.container, { marginTop: mt }, style]}
+    >
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
