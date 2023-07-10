@@ -7,9 +7,6 @@ import Wrapper from "@components/Wrapper";
 import Header from "@components/Header";
 import Button from "@components/Button";
 
-// Store
-import { setOnboardingPassed } from "@store/app";
-
 // Navigation
 import { renderApp } from "@navigation/index";
 
@@ -35,7 +32,6 @@ const CreateMnemonic: React.FC<Props> = (props) => {
   }, []);
 
   const onNext = (): void => {
-    dispatch(setOnboardingPassed(true));
     renderApp();
   };
 
@@ -53,11 +49,13 @@ const CreateMnemonic: React.FC<Props> = (props) => {
               This Privacy Policy was last updated on 9th of March 2021.
             </Text>
           </View>
-          <View style={{ marginTop: 12 }}>
+          <View
+            style={{ marginTop: 12, flexWrap: "wrap", flexDirection: "row" }}
+          >
             {mnemonic.split(" ").map((word, index) => (
-              <Text key={index} style={styles.word}>
-                {`${index + 1}. ${word}`}
-              </Text>
+              <View key={index} style={{ padding: 8 }}>
+                <Text style={[styles.word]}>{`${index + 1}. ${word}`}</Text>
+              </View>
             ))}
           </View>
         </ScrollView>

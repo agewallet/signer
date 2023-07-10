@@ -21,12 +21,12 @@ Navigation.events().registerAppLaunchedListener(async () => {
   const { statusBarHeight } = await Navigation.constants();
 
   const {
-    app: { isOnboardingPassed },
+    wallet: { mnemonic },
   } = store.getState();
 
   store.dispatch(setStatusBarHeight(statusBarHeight));
 
-  if (isOnboardingPassed) {
+  if (mnemonic.length) {
     renderApp();
   } else {
     renderScene(screens.WELCOME);

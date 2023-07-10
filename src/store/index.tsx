@@ -13,9 +13,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Reducers
 import appReducer from "./app";
+import walletReducer from "./wallet";
 
 const rootReducer = combineReducers({
   app: appReducer,
+  wallet: walletReducer,
 });
 
 export const persistedReducer = persistReducer(

@@ -6,7 +6,6 @@ import { TAppState } from "./types";
 const initialState: TAppState = {
   statusBarHeight: 0,
   passcode: null,
-  isOnboardingPassed: false,
 };
 
 const { actions, reducer } = createSlice({
@@ -19,12 +18,9 @@ const { actions, reducer } = createSlice({
     setPasscode(state, action: PayloadAction<string>) {
       state.passcode = action.payload;
     },
-    setOnboardingPassed(state, action: PayloadAction<boolean>) {
-      state.isOnboardingPassed = action.payload;
-    },
   },
 });
 
-export const { setStatusBarHeight, setPasscode, setOnboardingPassed } = actions;
+export const { setStatusBarHeight, setPasscode } = actions;
 
 export default reducer;
