@@ -34,11 +34,26 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     paddingBottom: plusOffset(0),
   },
+  list: {
+    flexWrap: "wrap",
+    flexDirection: "row",
+    marginHorizontal: -4,
+    marginTop: 8,
+  },
+  listItem: {
+    padding: 4,
+  },
+  wordRow: {
+    backgroundColor: "#F5F5F7",
+    padding: 8,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#EBEBEE",
+  },
   word: {
-    marginBottom: 12,
-    color: "#1D1D22",
+    color: "#74758C",
     fontSize: 15,
-    lineHeight: 25,
     fontWeight: "600",
+    lineHeight: 20,
   },
 });

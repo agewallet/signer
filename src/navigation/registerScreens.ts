@@ -31,6 +31,7 @@ const registerScreens = async (): Promise<void> => {
   Screens.set(screens.SECURITY, AppScenes.Security);
   Screens.set(screens.LANGUAGE, AppScenes.Language);
   Screens.set(screens.CREATE_MNEMONIC, AppScenes.CreateMnemonic);
+  Screens.set(screens.CREATE_PASSCODE, AppScenes.CreatePasscode);
 
   // Modals
   Screens.set(screens.RECEIVE_MODAL, AppModals.Receive);

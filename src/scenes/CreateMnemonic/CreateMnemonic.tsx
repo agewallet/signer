@@ -1,6 +1,6 @@
 import * as React from "react";
-import { View, Text, ScrollView } from "react-native";
-import { useDispatch } from "react-redux";
+import { View, Text, ScrollView, TouchableOpacity, Alert } from "react-native";
+import { addScreenshotListener } from "react-native-detector";
 
 // Components
 import Wrapper from "@components/Wrapper";
@@ -8,10 +8,13 @@ import Header from "@components/Header";
 import Button from "@components/Button";
 
 // Navigation
-import { renderApp } from "@navigation/index";
+import { renderScene } from "@navigation/index";
 
 // Utils
 import { generateMnemonic } from "@utils/wallet";
+
+// Config
+import * as screens from "@config/screens";
 
 // Styles
 import styles from "./styles";
@@ -25,14 +28,29 @@ const CreateMnemonic: React.FC<Props> = (props) => {
 
   const [mnemonic, setMnemonic] = React.useState<string>("");
 
-  const dispatch = useDispatch();
+  React.useEffect(() => {
+    const unsubscribe = addScreenshotListener(onScreenshotDetect);
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   React.useEffect(() => {
     setMnemonic(generateMnemonic());
   }, []);
 
+  const onScreenshotDetect = (): void => {
+    Alert.alert(
+      "No screenshots!",
+      "It's terribly unsafe. For security purposes, we have created a new mnemonic for you"
+    );
+
+    setMnemonic(generateMnemonic());
+  };
+
   const onNext = (): void => {
-    renderApp();
+    renderScene(screens.CREATE_PASSCODE);
   };
 
   return (
@@ -46,15 +64,16 @@ const CreateMnemonic: React.FC<Props> = (props) => {
           <Text style={styles.title}>Create Mnemonic</Text>
           <View style={styles.warning}>
             <Text style={styles.warningText}>
-              This Privacy Policy was last updated on 9th of March 2021.
+              We strongly recommend that you write down your mnemonics only on
+              paper
             </Text>
           </View>
-          <View
-            style={{ marginTop: 12, flexWrap: "wrap", flexDirection: "row" }}
-          >
+          <View style={styles.list}>
             {mnemonic.split(" ").map((word, index) => (
-              <View key={index} style={{ padding: 8 }}>
-                <Text style={[styles.word]}>{`${index + 1}. ${word}`}</Text>
+              <View key={index} style={styles.listItem}>
+                <TouchableOpacity style={styles.wordRow}>
+                  <Text style={styles.word}>{`${index + 1}. ${word}`}</Text>
+                </TouchableOpacity>
               </View>
             ))}
           </View>
