@@ -5,9 +5,6 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Wrapper from "@components/Wrapper";
 import Header from "@components/Header";
 
-// Navigation
-import { renderApp } from "@navigation/index";
-
 // Utils
 import { push } from "@utils/navigation";
 
@@ -24,12 +21,8 @@ interface Props {
 const AddNewWallet: React.FC<Props> = (props) => {
   const { componentId } = props;
 
-  const onPressAction = (type: "import" | "create") => (): void => {
-    if (type === "create") {
-      push(componentId, screens.CREATE_MNEMONIC);
-    } else {
-      renderApp();
-    }
+  const onPressAction = (screen: string) => (): void => {
+    push(componentId, screen);
   };
 
   return (
@@ -42,7 +35,7 @@ const AddNewWallet: React.FC<Props> = (props) => {
         >
           <TouchableOpacity
             style={styles.button}
-            onPress={onPressAction("import")}
+            onPress={onPressAction(screens.IMPORT_MNEMONIC)}
           >
             <View style={styles.buttonIconRow} />
             <View style={styles.buttonRow}>
@@ -55,7 +48,7 @@ const AddNewWallet: React.FC<Props> = (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button, styles.buttonOffset]}
-            onPress={onPressAction("create")}
+            onPress={onPressAction(screens.CREATE_MNEMONIC)}
           >
             <View style={styles.buttonIconRow} />
             <View style={styles.buttonRow}>

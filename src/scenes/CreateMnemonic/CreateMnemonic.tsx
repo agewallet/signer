@@ -7,11 +7,10 @@ import Wrapper from "@components/Wrapper";
 import Header from "@components/Header";
 import Button from "@components/Button";
 
-// Navigation
-import { renderScene } from "@navigation/index";
-
 // Utils
 import { generateMnemonic } from "@utils/wallet";
+import { setString } from "@utils/clipboard";
+import { push } from "@utils/navigation";
 
 // Config
 import * as screens from "@config/screens";
@@ -50,7 +49,13 @@ const CreateMnemonic: React.FC<Props> = (props) => {
   };
 
   const onNext = (): void => {
-    renderScene(screens.CREATE_PASSCODE);
+    push(componentId, screens.CREATE_PASSCODE);
+  };
+
+  const onCopy = (word: string) => (): void => {
+    setString(word);
+
+    Alert.alert("Copied");
   };
 
   return (
@@ -71,7 +76,7 @@ const CreateMnemonic: React.FC<Props> = (props) => {
           <View style={styles.list}>
             {mnemonic.split(" ").map((word, index) => (
               <View key={index} style={styles.listItem}>
-                <TouchableOpacity style={styles.wordRow}>
+                <TouchableOpacity style={styles.wordRow} onPress={onCopy(word)}>
                   <Text style={styles.word}>{`${index + 1}. ${word}`}</Text>
                 </TouchableOpacity>
               </View>

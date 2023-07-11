@@ -13,6 +13,7 @@ export const TX = "tx";
 export const ASSET = "asset";
 export const CREATE_MNEMONIC = "createMnemonic";
 export const CREATE_PASSCODE = "createPasscode";
+export const IMPORT_MNEMONIC = "importMnemonic";
 
 // Modals
 export const RECEIVE_MODAL = "receiveModal";

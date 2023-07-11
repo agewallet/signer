@@ -13,3 +13,4 @@ export { default as Security } from "./Security";
 export { default as Language } from "./Language";
 export { default as CreateMnemonic } from "./CreateMnemonic";
 export { default as CreatePasscode } from "./CreatePasscode";
+export { default as ImportMnemonic } from "./ImportMnemonic";

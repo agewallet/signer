@@ -435,6 +435,8 @@ PODS:
     - React-RCTText
   - RNCAsyncStorage (1.19.0):
     - React-Core
+  - RNCClipboard (1.11.2):
+    - React-Core
   - RNGestureHandler (2.12.0):
     - React-Core
   - RNOS (1.2.6):
@@ -511,6 +513,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNOS (from `../node_modules/react-native-os`)
   - RNSVG (from `../node_modules/react-native-svg`)
@@ -614,6 +617,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-navigation"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-clipboard/clipboard"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNOS:
@@ -677,6 +682,7 @@ SPEC CHECKSUMS:
   ReactCommon: 85c98ab0a509e70bf5ee5d9715cf68dbf495b84c
   ReactNativeNavigation: 49a0f0edaf17fe3069da247d826ce0a13e32a63c
   RNCAsyncStorage: 4b98ac3c64efa4e35c1197cb0c5ca5e9f5d4c666
+  RNCClipboard: 3f0451a8100393908bea5c5c5b16f96d45f30bfc
   RNGestureHandler: dec4645026e7401a0899f2846d864403478ff6a5
   RNOS: 6f2f9a70895bbbfbdad7196abd952e7b01d45027
   RNSVG: 80584470ff1ffc7994923ea135a3e5ad825546b9

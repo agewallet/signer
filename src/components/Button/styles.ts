@@ -15,4 +15,7 @@ export default StyleSheet.create({
     letterSpacing: 0.3,
     color: "#FFFFFF",
   },
+  disabled: {
+    backgroundColor: "#B0B0BD",
+  },
 });

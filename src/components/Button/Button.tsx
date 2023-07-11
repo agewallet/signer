@@ -9,15 +9,22 @@ interface Props {
   onPress: () => void;
   style?: ViewStyle;
   mt?: number;
+  disabled?: boolean;
 }
 
 const Button: React.FC<Props> = (props) => {
-  const { title, onPress, style, mt = 0 } = props;
+  const { title, onPress, style, mt = 0, disabled } = props;
 
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.container, { marginTop: mt }, style]}
+      style={[
+        styles.container,
+        disabled && styles.disabled,
+        { marginTop: mt },
+        style,
+      ]}
+      disabled={disabled}
     >
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
